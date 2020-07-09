@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KolokwiumPoprawa.Migrations
 {
-    [DbContext(typeof(MyDbContext))]
+    [DbContext(typeof(ArtistsDbContext))]
     [Migration("20200709173942_AddRequiredStructures")]
     partial class AddRequiredStructures
     {

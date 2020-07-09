@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KolokwiumPoprawa.Migrations
 {
-    [DbContext(typeof(MyDbContext))]
+    [DbContext(typeof(ArtistsDbContext))]
     partial class MyDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
