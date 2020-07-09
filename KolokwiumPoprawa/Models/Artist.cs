@@ -8,7 +8,7 @@ namespace KolokwiumPoprawa.Models
         public int IdArtist { get; set; }
         public int IdArtMovement { get; set; }
         public virtual ArtMovement ArtMovement { get; set; }
-        public int IdCityOfBirth { get; set; }
+        public int? IdCityOfBirth { get; set; }
         public virtual City CityOfBirth { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

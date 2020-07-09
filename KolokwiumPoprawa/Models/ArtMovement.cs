@@ -6,7 +6,7 @@ namespace KolokwiumPoprawa.Models
     public class ArtMovement
     {
         public int IdArtMovement { get; set; }
-        public int IdNextArtMovement { get; set; }
+        public int? IdNextArtMovement { get; set; }
         public virtual ArtMovement NextArtMovement { get; set; }
         public virtual ICollection<ArtMovement> PreviousArtMovements { get; set; }
         public int IdMovementFounder { get; set; }
