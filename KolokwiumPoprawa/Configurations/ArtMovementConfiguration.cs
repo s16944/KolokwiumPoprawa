@@ -17,8 +17,8 @@ namespace KolokwiumPoprawa.Configurations
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(am => am.MovementFounder)
-                .WithOne(a => a.FoundedArtMovement)
-                .HasForeignKey<ArtMovement>(am => am.IdMovementFounder)
+                .WithMany(a => a.FoundedArtMovements)
+                .HasForeignKey(am => am.IdMovementFounder)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
 

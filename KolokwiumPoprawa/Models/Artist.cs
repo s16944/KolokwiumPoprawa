@@ -16,6 +16,6 @@ namespace KolokwiumPoprawa.Models
         public DateTime DateOfBirth { get; set; }
         public virtual ICollection<Painting> Paintings { get; set; }
         public virtual ICollection<Painting> CoAuthorPaintings { get; set; }
-        public virtual ArtMovement FoundedArtMovement { get; set; }
+        public virtual ICollection<ArtMovement> FoundedArtMovements { get; set; }
     }
 }
