@@ -1,5 +1,6 @@
 using KolokwiumPoprawa.DTO;
 using KolokwiumPoprawa.Mappers;
+using KolokwiumPoprawa.Middlewares;
 using KolokwiumPoprawa.Models;
 using KolokwiumPoprawa.Services;
 using Microsoft.AspNetCore.Builder;
@@ -40,6 +41,8 @@ namespace KolokwiumPoprawa
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseMiddleware<ErrorMapMiddleware>();
 
             app.UseHttpsRedirection();
 
