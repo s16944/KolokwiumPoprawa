@@ -15,7 +15,7 @@ namespace KolokwiumPoprawa.Services
         public void AddArtist(Artist artist)
         {
             _dbContext.Database.BeginTransaction();
-            
+
             var dbArtist = _dbContext.Artists.FirstOrDefault(a => a.Nickname == artist.Nickname);
             if (dbArtist != default)
                 throw new ConflictException($"Artist with nickname {artist.Nickname} already exists");
@@ -25,14 +25,14 @@ namespace KolokwiumPoprawa.Services
 
             var dbArtMovement = _dbContext.ArtMovements.SingleOrDefault(am => am.IdArtMovement == artist.IdArtMovement);
             if (dbArtMovement == default)
-                throw new NotFoundException($"Art movement with id {artist.ArtMovement} not found");
+                throw new NotFoundException($"Art movement with id {artist.IdArtMovement} not found");
 
             artist.CityOfBirth = dbCity;
             artist.ArtMovement = dbArtMovement;
-            
+
             _dbContext.Artists.Add(artist);
             _dbContext.SaveChanges();
-            
+
             _dbContext.Database.CommitTransaction();
         }
     }
