@@ -12,11 +12,14 @@ namespace KolokwiumPoprawa.Controllers
     {
         private readonly IDbService _dbService;
         private readonly IMapper<AddArtistRequest, Artist> _requestToArtistMapper;
+        private readonly IMapper<Artist, AddArtistResponse> _artistToResponseMapper;
 
-        public ArtistsController(IDbService dbService, IMapper<AddArtistRequest, Artist> requestToArtistMapper)
+        public ArtistsController(IDbService dbService, IMapper<AddArtistRequest, Artist> requestToArtistMapper,
+            IMapper<Artist, AddArtistResponse> artistToResponseMapper)
         {
             _dbService = dbService;
             _requestToArtistMapper = requestToArtistMapper;
+            _artistToResponseMapper = artistToResponseMapper;
         }
 
         [HttpPost]
@@ -24,7 +27,8 @@ namespace KolokwiumPoprawa.Controllers
         {
             var artist = _requestToArtistMapper.Map(request);
             _dbService.AddArtist(artist);
-            return Created("/api/artists", artist);
+            var response = _artistToResponseMapper.Map(artist);
+            return Created("/api/artists", response);
         }
     }
 }

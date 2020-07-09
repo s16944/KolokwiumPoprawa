@@ -25,6 +25,7 @@ namespace KolokwiumPoprawa
         {
             services.AddScoped<IDbService, EfDbService>();
             services.AddScoped<IMapper<AddArtistRequest, Artist>, AddArtistRequestToArtistMapper>();
+            services.AddScoped<IMapper<Artist, AddArtistResponse>, ArtistToAddArtistResponseMapper>();
             services.AddDbContext<ArtistsDbContext>(options =>
             {
                 options.UseSqlServer("Data Source=db-mssql;Initial Catalog=s16944;Integrated Security=True");
